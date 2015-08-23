@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  lname: MyString
+  service_date: 2015-08-23
+  depost_date: 2015-08-23
+  mc: 9.99
+  visa: 9.99
+  debit: 9.99
+  cash: 9.99
+  tax: 9.99
+
+two:
+  fname: MyString
+  lname: MyString
+  service_date: 2015-08-23
+  depost_date: 2015-08-23
+  mc: 9.99
+  visa: 9.99
+  debit: 9.99
+  cash: 9.99
+  tax: 9.99
