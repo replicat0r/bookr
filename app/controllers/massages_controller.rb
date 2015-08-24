@@ -3,6 +3,10 @@ class MassagesController < ApplicationController
     @massage = Massage.all
   end
 
+  def show
+    
+  end
+
   def create
     @massage = Massage.create(massages_param)
 

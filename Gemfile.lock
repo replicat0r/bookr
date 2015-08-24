@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/anowell/jquery_datepicker.git
+  revision: fbaa3f56a80d300c83718d0d0bbbb1ce503d9bba
+  specs:
+    jquery_datepicker (0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -57,6 +63,12 @@ GEM
       sass (>= 3.3.0)
     builder (3.2.2)
     byebug (6.0.2)
+    clndr-rails (1.2.10.1)
+      jquery-rails
+      momentjs-rails
+      rails (~> 4.2.0)
+      railties (~> 4.2.0)
+      underscore-rails
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -81,6 +93,8 @@ GEM
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     json (1.8.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -90,6 +104,8 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.8.0)
+    momentjs-rails (2.10.3)
+      railties (>= 3.1)
     multi_json (1.11.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -174,6 +190,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.8.3)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -188,10 +205,13 @@ DEPENDENCIES
   better_errors
   bootstrap-sass
   byebug
+  clndr-rails
   coffee-rails (~> 4.1.0)
   figaro (>= 1.0.0.rc1)
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
+  jquery_datepicker!
   pg
   pry-rails
   pry-rescue

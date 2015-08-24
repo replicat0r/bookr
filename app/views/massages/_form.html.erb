@@ -35,7 +35,8 @@
 <div class="col-sm-12">
 
 	<%= f.label :depost_date, 'Deposit Date' ,class: "m-l-5" %>
-	<%= f.text_field :depost_date ,class: "form-control" %>
+	<%= f.datepicker "depost_date",:dateFormat => "yy-mm-dd",class: "form-control" %>
+
 </div>
 <div class="modal-footer">
 	<%= f.submit "Done" ,class:"btn btn-info" %>
