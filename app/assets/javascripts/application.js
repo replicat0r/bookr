@@ -13,8 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui/datepicker
+
 //= require bootstrap-sprockets
 //= require best_in_place
+//= require best_in_place.jquery-ui
+
 //= require moment
 //= require underscore
 //= require clndr-rails
