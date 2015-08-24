@@ -34,10 +34,11 @@ img {
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
-  @extend .container;
+  @extend .container-fluid;
   background-color: #eee;
   padding-bottom: 80px;
   width: 100%;
+  min-height: 94vh;
   margin-top: 51px; // accommodate the navbar
   }
 section {

@@ -1,0 +1,45 @@
+<div class="modal fade createfolder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Create A New Folder</h3>
+      </div>
+      <div class="modal-body">
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="">
+  <%= link_to("Add New", new_massage_path ,remote:true) %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>        <th>Reciept Number</th>
+      <th>Customer Firstname</th>
+      <th>CustomerLastname</th>
+      <th>Payment Type</th>
+      <th>Payment Tax Amount</th>
+      <th>Payment Amount</th>
+      <th>Payment Total Amount</th>
+      <th>Service Date</th>
+      <th>Deposit Date </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @massage.each do |m| %>
+    <tr>
+      <td><%= best_in_place m, :receipt_num %></td>
+      <td><%=  best_in_place m,:fname %></td>
+      <td><%= best_in_place m,:lname %></td>
+      <td><%= best_in_place m,:cardtype %></td>
+      <td><%= best_in_place m,:tax %></td>
+      <td><%= best_in_place m,:amount %></td>
+      <td><%= best_in_place m,:service_date %></td>
+      <td><%= best_in_place m,:depost_date %></td>
+      
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
