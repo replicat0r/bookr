@@ -11,8 +11,15 @@
     </div>
   </div>
 </div>
+
+
 <div class="">
+
+      <div id="full-clndr" class="clearfix"></div>
+
   <%= link_to("Add New", new_massage_path ,remote:true) %>
+
+
   <table class="table table-bordered">
     <thead>
       <tr>        <th>Reciept Number</th>
@@ -40,3 +47,35 @@
   </tbody>
 </table>
 </div>
+
+
+
+<script type="text/template" id="full-clndr-template">
+<div class="clndr-grid">
+<div class="clndr-controls">
+  <div class="clndr-previous-button"><i class="fa fa-chevron-left"></i></div>
+  <div class="clndr-next-button"><i class="fa fa-chevron-right"></i></div>
+  <div class="current-month"><%%= month %> <%%= year %></div>
+</div>
+<div class="days-of-the-week clearfix">
+  <%% _.each(daysOfTheWeek, function(day) { %>
+  <div class="header-day"><%%= day %></div>
+  <%% }); %>
+</div>
+<div class="days">
+  <%% _.each(days, function(day) { %>
+  <div class="<%%= day.classes %>" id="<%%= day.id %>"><span class="day-number"><%%= day.day %></span></div>
+  <%% }); %>
+</div>
+</div>
+<div class="event-listing">
+<%% _.each(eventsThisMonth, function(event) { %>
+<div class="event-item">
+  <div class="event-item-name"><h4><%%= event.title %></h4></div>
+  <div class="event-item-dueamount"><h2>$<%%= event.due %></h2></div>
+    <div class="event-item-duedate"><h5>Bill due on <%%= event.date %></h5></div>
+<hr>
+</div>
+<%% }); %>
+</div>
+</script>
