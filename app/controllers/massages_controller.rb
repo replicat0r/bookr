@@ -3,8 +3,15 @@ class MassagesController < ApplicationController
     @massage = Massage.all
   end
 
-  def show
-    
+  def get_data
+
+    @massages = Massage.where('deposit_date = ? ', params[:date])
+    @massages.each do |n|
+      puts n
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -35,6 +42,6 @@ class MassagesController < ApplicationController
 
   private
   def massages_param
-    params.require(:massage).permit(:fname,:lname,:cardtype,:depost_date,:service_date,:amount)
+    params.require(:massage).permit(:fname,:lname,:cardtype,:deposit_date,:service_date,:amount)
   end
 end

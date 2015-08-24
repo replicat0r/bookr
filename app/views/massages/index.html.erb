@@ -13,10 +13,12 @@
 </div>
 
 
-<div class="">
+<div class="row">
 
-      <div id="full-clndr" class="clearfix"></div>
+<div class="col-sm-12 col-md-12">
+<div id="full-clndr" class="clearfix"></div>
 
+</div>
   <%= link_to("Add New", new_massage_path ,remote:true) %>
 
 
@@ -40,7 +42,7 @@
       <td><%= best_in_place m,:cardtype ,:as => :select, :collection => %w(Mastercard Visa Debit Cash),:place_holder=> "-----------" %></td>
       <td><%= best_in_place m,:tax,:place_holder=> "-----------" %></td>
       <td><%= best_in_place m,:amount,:place_holder=> "-----------" %></td>
-      <td><%= best_in_place m,:depost_date ,:as => :date,:place_holder=> "-----------" %></td>
+      <td><%= best_in_place m,:deposit_date ,:as => :date,:place_holder=> "-----------" %></td>
       
     </tr>
     <% end %>
@@ -69,13 +71,65 @@
 </div>
 </div>
 <div class="event-listing">
-<%% _.each(eventsThisMonth, function(event) { %>
-<div class="event-item">
-  <div class="event-item-name"><h4><%%= event.title %></h4></div>
-  <div class="event-item-dueamount"><h2>$<%%= event.due %></h2></div>
-    <div class="event-item-duedate"><h5>Bill due on <%%= event.date %></h5></div>
-<hr>
-</div>
-<%% }); %>
+// <%% _.each(eventsThisMonth, function(event) { %>
+// <div class="event-item">
+//   <div class="event-item-name"><h4><%%= event.title %></h4></div>
+//   <div class="event-item-dueamount"><h2><%%= event.card %></h2></div>
+//     <div class="event-item-duedate"><h5><%%= event.date %></h5></div>
+
+
+// <hr>
+// </div>
+// <%% }); %>
+
+
 </div>
 </script>
+
+<script>    
+    <% unless @massages.nil? %>
+
+  var events = [
+        <% @massages.each do |m| %> {
+            date: '<%= m.created_at %>',
+            title: '<%= best_in_place m, :receipt_num,:place_holder=> "-----------" %>',
+            card: '<%= best_in_place m,:cardtype ,:as => :select, :collection => %w(Mastercard Visa Debit Cash),:place_holder=> "-----------" %>'
+        },
+        <% end %>
+    ];
+
+    <% end %>
+    clndr = $('#full-clndr').clndr({
+        template: $('#full-clndr-template').html(),
+    <% unless @massages.nil? %>
+                  events: events,
+
+        <% end %>
+
+
+        forceSixRows: true,
+
+          clickEvents: {
+    // fired whenever a calendar box is clicked.
+    // returns a 'target' object containing the DOM element, any events, and the date as a moment.js object.
+    click: function(target){ 
+      console.log(target.date.format("YYYY-MM-DD"))
+      date = target.date.format("YYYY-MM-DD")
+      $.ajax({url: "<%= get_data_massages_path %>", data: {date: date}, type: "get"});
+
+    }
+    // fired when a user goes forward a month. returns a moment.js object set to the correct month.
+
+  },
+  // the target classnames that CLNDR will look for to bind events. these are the defaults.
+  targets: {
+    nextButton: 'clndr-next-button',
+    previousButton: 'clndr-previous-button',
+    todayButton: 'clndr-today-button',
+    day: 'day',
+    empty: 'empty'
+  },
+  // an array of event objects
+
+
+    });</script>
