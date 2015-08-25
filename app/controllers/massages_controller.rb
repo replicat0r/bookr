@@ -23,7 +23,7 @@ class MassagesController < ApplicationController
   end
 
   def update
-    @massage = Massage.find params[:id]
+    @massage = Massage.find(params[:id]) 
 
     respond_to do |format|
       if @massage.update_attributes(massages_param)
