@@ -6,6 +6,8 @@ class MassagesController < ApplicationController
   def get_data
 
     @massages = Massage.where('deposit_date = ? ', params[:date])
+
+    @date = params[:date]
     @massages.each do |n|
       puts n
     end
@@ -35,6 +37,7 @@ class MassagesController < ApplicationController
   end
   def new
     @massage = Massage.new
+    @date = params[:date]
     respond_to do |format|
       format.js
     end

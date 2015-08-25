@@ -1,0 +1,6 @@
+$('.event-listing').html('<%= j render 'table' %>');
+href = $('.add_btn').attr('href');
+new_date = href.replace(/\?.*/,'?date=<%= "#{@date}" %>' );
+$('.add_btn').attr('href',new_date)
+jQuery(".best_in_place").best_in_place();
+

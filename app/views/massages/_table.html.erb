@@ -1,0 +1,28 @@
+    <%= link_to("Add New", new_massage_path(:date => "2015-08-04") ,remote:true ,class: "add_btn") %>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>        <th>Reciept Number</th>
+      <th>Customer Firstname</th>
+      <th>CustomerLastname</th>
+      <th>Payment Type</th>
+      <th>Payment Tax Amount</th>
+      <th>Payment Total Amount</th>
+      <th>Deposit Date </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @massages.each do |m| %>
+    <tr>
+      <td><%= best_in_place m, :receipt_num,:place_holder=> "-----------" %></td>
+      <td><%=  best_in_place m,:fname,:place_holder=> "-----------" %></td>
+      <td><%= best_in_place m,:lname,:place_holder=> "-----------" %></td>
+      <td><%= best_in_place m,:cardtype ,:as => :select, :collection => %w(Mastercard Visa Debit Cash),:place_holder=> "-----------" %></td>
+      <td><%= best_in_place m,:tax,:place_holder=> "-----------" %></td>
+      <td><%= best_in_place m,:amount,:place_holder=> "-----------" %></td>
+      <td><%= best_in_place m,:deposit_date ,:as => :date,:place_holder=> "-----------" %></td>
+      
+    </tr>
+    <% end %>
+  </tbody>
+  </table>

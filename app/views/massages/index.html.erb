@@ -16,10 +16,11 @@
 <div class="row">
 
 <div class="col-sm-12 col-md-12">
-<div id="full-clndr" class="clearfix"></div>
+<div id="full-clndr" class="clearfix">
+  
+</div>
 
 </div>
-  <%= link_to("Add New", new_massage_path ,remote:true) %>
 
 
   <table class="table table-bordered">
@@ -87,24 +88,10 @@
 </script>
 
 <script>    
-    <% unless @massages.nil? %>
 
-  var events = [
-        <% @massages.each do |m| %> {
-            date: '<%= m.created_at %>',
-            title: '<%= best_in_place m, :receipt_num,:place_holder=> "-----------" %>',
-            card: '<%= best_in_place m,:cardtype ,:as => :select, :collection => %w(Mastercard Visa Debit Cash),:place_holder=> "-----------" %>'
-        },
-        <% end %>
-    ];
-
-    <% end %>
     clndr = $('#full-clndr').clndr({
         template: $('#full-clndr-template').html(),
-    <% unless @massages.nil? %>
-                  events: events,
 
-        <% end %>
 
 
         forceSixRows: true,
