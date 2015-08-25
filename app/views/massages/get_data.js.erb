@@ -1,4 +1,4 @@
-$('.event-listing').html('<%= j render 'table' %>');
+$('.data_table').html('<%= j render 'table' %>');
 href = $('.add_btn').attr('href');
 new_date = href.replace(/\?.*/,'?date=<%= "#{@date}" %>' );
 $('.current_date').text("Customer Data for: <%= "#{@date}" %>")

@@ -1,6 +1,9 @@
 class MassagesController < ApplicationController
   def index
+    @today = Date.today
     @massage = Massage.all
+
+    @massages = Massage.where('deposit_date = ? ', @today)
   end
 
   def get_data

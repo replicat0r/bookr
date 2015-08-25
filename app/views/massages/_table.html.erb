@@ -1,4 +1,4 @@
-  <h2 class="current_date"></h2>
+  <h2 class="current_date">Customer Data for: <%= @today unless @today.blank? %></h2>
 
   <%= link_to("Add New", new_massage_path(:date => "2015-08-04") ,remote:true ,class: "add_btn btn btn-success") %>
 
