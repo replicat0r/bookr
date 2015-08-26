@@ -20,9 +20,11 @@ class MassagesController < ApplicationController
   end
 
   def create
-    @massage = Massage.create(massages_param)
+    @massage = Massage.new(massages_param)
+    total = @massage.amount
+    @massage.tax = total - (total/1.13)
     @massages = Massage.where('service_date = ? ', params[:massage][:service_date])
-
+    @date =params[:massage][:service_date] 
     #redirect_to massages_path
     respond_to do |format|
       if @massage.save

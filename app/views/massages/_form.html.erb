@@ -19,17 +19,22 @@
 	</div>
 </div>
 <div class=" form-group">
-	<div class="col-sm-8">
-		<%= f.label :cardtype, 'Mastercard' ,class: "m-l-5" %>
-		<%= f.radio_button :cardtype, 'Mastercard' , :class => '' %>
-		<%= f.label :cardtype, 'Visa' ,class: "m-l-5" %>
-		<%= f.radio_button :cardtype, 'Visa' , :class => '' %>
-		<%= f.label :cardtype, 'Debit' ,class: "m-l-5" %>
-		<%= f.radio_button :cardtype, 'Debit' , :class => '' %>
-		<%= f.label :cardtype, 'Cash' ,class: "m-l-5" %>
-		<%= f.radio_button :cardtype, 'Cash' , :class => '' %>
+
+	<div class="col-sm-6">
+
+		<%= f.label :cardtype, 'Select Payment Methods' ,class: "m-l-5" %>
+
+<%= f.select :cardtype, [['Mastercard','1'], ['Visa','2'],['Debit','3'],['Cash','4'],['Cheque','5']],{},class:'form-control'  %>
+		<%# f.label :cardtype, 'Mastercard' ,class: "m-l-5" %>
+		<%# f.radio_button :cardtype, 'Mastercard' , :class => '' %>
+		<%# f.label :cardtype, 'Visa' ,class: "m-l-5" %>
+		<%# f.radio_button :cardtype, 'Visa' , :class => '' %>
+		<%# f.label :cardtype, 'Debit' ,class: "m-l-5" %>
+		<%# f.radio_button :cardtype, 'Debit' , :class => '' %>
+		<%# f.label :cardtype, 'Cash' ,class: "m-l-5" %>
+		<%# f.radio_button :cardtype, 'Cash' , :class => '' %>
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-6">
 		<%= f.label :amount, 'Amount' ,class: "m-l-5" %>
 		<%= f.text_field :amount ,class: "form-control" %>
 	</div>
@@ -41,8 +46,8 @@
 </div>
 
 <div class="clear">
-	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	<%= f.submit "Done" ,class:"btn btn-info" %>
+	<button type="button" class="btn btn-default m-20" data-dismiss="modal">Cancel</button>
+	<%= f.submit "Submit" ,class:"btn btn-success pad-20 pull-right" %>
 </div>
 
 <% end %>

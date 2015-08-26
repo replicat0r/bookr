@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="myModalLabel">Create A New Folder</h3>
+        <h3 class="modal-title text-center" id="myModalLabel">Add A New Customer</h3>
       </div>
       <div class="modal-body">
       </div>
@@ -15,7 +15,7 @@
 
 
 <div class="row">
-<div class="col-sm-3">
+<div class="col-sm-3 row">
 
 <div id="full-clndr" class="clearfix "></div>
 </div>
@@ -31,14 +31,13 @@
   <table class="table table-bordered">
     <thead>
       <tr>      
-            <th>Service Date</th>
-  
-      <th>Reciept Number</th>
-      <th>Customer Firstname</th>
-      <th>CustomerLastname</th>
-      <th>Payment Type</th>
-      <th>Payment Tax Amount</th>
-      <th>Payment Total Amount</th>
+      <th>Service Date</th>
+      <th>Receipt Number</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>PayType</th>
+      <th>Pay Tax </th>
+      <th>Payment Total</th>
       <th>Deposit Date </th>
     </tr>
   </thead>
@@ -100,15 +99,6 @@
 
 <script>    
 
-  $(document).ready(function(){
-      return $("#new_massage").on("ajax:success", function(e, data, status, xhr) {
-    console.log('hello')
-    return $("#new_massage").append(xhr.responseText);
-
-  }).on("ajax:error", function(e, xhr, status, error) {
-    return $("#new_massage").append("<p>ERROR</p>");
-  });
-  })
 
     clndr = $('#full-clndr').clndr({
         template: $('#full-clndr-template').html(),
