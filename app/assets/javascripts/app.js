@@ -18,10 +18,3 @@ $(document).ready(function() {
 
 });
 
-// $(function() {
-//    $(".newcustomer").on("ajax:success", function(event, data, status, xhr) {
-//     $('.createfolder').modal('hide');
-//     alert('asd')
-//      $('table tbody').append('<tr><td>' + data.title + '</td><td>' + data.content + '</td></tr>');
-//   });
-// })();
