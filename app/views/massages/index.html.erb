@@ -110,7 +110,7 @@
       console.log(target.date.format("YYYY-MM-DD"))
       date = target.date.format("YYYY-MM-DD")
       $.ajax({url: "<%= get_data_massages_path %>", data: {date: date}, type: "get"});
-
+      
     }
     // fired when a user goes forward a month. returns a moment.js object set to the correct month.
 

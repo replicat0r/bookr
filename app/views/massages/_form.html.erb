@@ -6,16 +6,16 @@
 	</div>
 	<div class="col-sm-6">
 		<label>Reciept Number</label>
-	<%= f.text_field :receipt_num ,class: "form-control" %></div>
+	<%= f.text_field :receipt_num ,class: "form-control" ,:required => true %></div>
 </div>
 <div class=" form-group">
 	<div class="col-sm-6">
 		<label>First Name</label>
-		<%= f.text_field :fname ,class: "form-control" %>
+		<%= f.text_field :fname ,class: "form-control" ,:required => true%>
 	</div>
 	<div class="col-sm-6">
 		<label>Last Name</label>
-		<%= f.text_field :lname ,class: "form-control" %>
+		<%= f.text_field :lname ,class: "form-control" ,:required => true%>
 	</div>
 </div>
 <div class=" form-group">
@@ -24,7 +24,7 @@
 
 		<%= f.label :cardtype, 'Select Payment Methods' ,class: "m-l-5" %>
 
-<%= f.select :cardtype, [['Mastercard','1'], ['Visa','2'],['Debit','3'],['Cash','4'],['Cheque','5']],{},class:'form-control'  %>
+<%= f.select :cardtype, [['Mastercard','1'], ['Visa','2'],['Debit','3'],['Cash','4'],['Cheque','5']],{},class:'form-control'  ,:required => true%>
 		<%# f.label :cardtype, 'Mastercard' ,class: "m-l-5" %>
 		<%# f.radio_button :cardtype, 'Mastercard' , :class => '' %>
 		<%# f.label :cardtype, 'Visa' ,class: "m-l-5" %>
@@ -36,7 +36,7 @@
 	</div>
 	<div class="col-sm-6">
 		<%= f.label :amount, 'Amount' ,class: "m-l-5" %>
-		<%= f.text_field :amount ,class: "form-control" %>
+		<%= f.number_field :amount ,class: "form-control", :required => true %>
 	</div>
 </div>
 
@@ -47,7 +47,7 @@
 
 <div class="clear">
 	<button type="button" class="btn btn-default m-20" data-dismiss="modal">Cancel</button>
-	<%= f.submit "Submit" ,class:"btn btn-success pad-20 pull-right" %>
+	<%= f.submit "Submit" ,class:"btn btn-success m-20 pull-right" %>
 </div>
 
 <% end %>
