@@ -1,4 +1,6 @@
 class MassagesController < ApplicationController
+
+  before_filter :authenticate_check
   def index
     @today = Date.today
     @all_massage = Massage.all.order('service_date ASC')
@@ -24,7 +26,7 @@ class MassagesController < ApplicationController
     total = @massage.amount
     @massage.tax = total - (total/1.13)
     @massages = Massage.where('service_date = ? ', params[:massage][:service_date])
-    @date =params[:massage][:service_date] 
+    @date =params[:massage][:service_date]
     #redirect_to massages_path
     respond_to do |format|
       if @massage.save
