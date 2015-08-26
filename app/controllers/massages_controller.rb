@@ -1,14 +1,14 @@
 class MassagesController < ApplicationController
   def index
     @today = Date.today
-    @massage = Massage.all
+    @all_massage = Massage.all.order('service_date ASC')
 
-    @massages = Massage.where('deposit_date = ? ', @today)
+    @massages = Massage.where('service_date = ? ', @today)
   end
 
   def get_data
 
-    @massages = Massage.where('deposit_date = ? ', params[:date])
+    @massages = Massage.where('service_date = ? ', params[:date])
 
     @date = params[:date]
     @massages.each do |n|
@@ -21,12 +21,22 @@ class MassagesController < ApplicationController
 
   def create
     @massage = Massage.create(massages_param)
+    @massages = Massage.where('service_date = ? ', params[:massage][:service_date])
 
-    redirect_to massages_path
+    #redirect_to massages_path
+    respond_to do |format|
+      if @massage.save
+        format.html { redirect_to massages_path, notice: 'Post was successfully created.' }
+        format.js
+      else
+        format.html { render action: "new" }
+        format.json { render json: @massage.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
-    @massage = Massage.find(params[:id]) 
+    @massage = Massage.find(params[:id])
 
     respond_to do |format|
       if @massage.update_attributes(massages_param)
@@ -48,6 +58,6 @@ class MassagesController < ApplicationController
 
   private
   def massages_param
-    params.require(:massage).permit(:fname,:lname,:cardtype,:deposit_date,:service_date,:amount)
+    params.require(:massage).permit(:receipt_num,:fname,:lname,:cardtype,:deposit_date,:service_date,:amount)
   end
 end

@@ -26,9 +26,14 @@
 </div>
 </div>
 
+<div class="col-sm-12">
+<h2> Year End Data</h2>
   <table class="table table-bordered">
     <thead>
-      <tr>        <th>Reciept Number</th>
+      <tr>      
+            <th>Service Date</th>
+  
+      <th>Reciept Number</th>
       <th>Customer Firstname</th>
       <th>CustomerLastname</th>
       <th>Payment Type</th>
@@ -38,8 +43,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @massage.each do |m| %>
+    <% @all_massage.each do |m| %>
     <tr>
+      <td><%= best_in_place m, :service_date,:as => :date,:place_holder=> "-----------" %></td>
+
       <td><%= best_in_place m, :receipt_num,:place_holder=> "-----------" %></td>
       <td><%=  best_in_place m,:fname,:place_holder=> "-----------" %></td>
       <td><%= best_in_place m,:lname,:place_holder=> "-----------" %></td>
@@ -52,6 +59,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 </div>
 
 
@@ -91,6 +99,16 @@
 </script>
 
 <script>    
+
+  $(document).ready(function(){
+      return $("#new_massage").on("ajax:success", function(e, data, status, xhr) {
+    console.log('hello')
+    return $("#new_massage").append(xhr.responseText);
+
+  }).on("ajax:error", function(e, xhr, status, error) {
+    return $("#new_massage").append("<p>ERROR</p>");
+  });
+  })
 
     clndr = $('#full-clndr').clndr({
         template: $('#full-clndr-template').html(),

@@ -7,4 +7,21 @@ $(document).ready(function() {
 
   $.datepicker.setDefaults({ dateFormat: 'yy-mm-dd' });
 
+  //$('.newcustomer ').bind("ajax:success", function(){alert('asds')});
+  return $("#new_massage").on("ajax:success", function(e, data, status, xhr) {
+    console.log('hello')
+    return $("#new_massage").append(xhr.responseText);
+
+  }).on("ajax:error", function(e, xhr, status, error) {
+    return $("#new_massage").append("<p>ERROR</p>");
+  });
+
 });
+
+// $(function() {
+//    $(".newcustomer").on("ajax:success", function(event, data, status, xhr) {
+//     $('.createfolder').modal('hide');
+//     alert('asd')
+//      $('table tbody').append('<tr><td>' + data.title + '</td><td>' + data.content + '</td></tr>');
+//   });
+// })();
