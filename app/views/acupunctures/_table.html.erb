@@ -1,0 +1,38 @@
+  <h3 class="current_date">Customer Data for: <%= @today unless @today.blank? %>
+
+  </h3>
+  <%= link_to("Add New", new_acupuncture_path(:date => "#{@today}") ,remote:true ,class: "add_btn btn btn-success") %>
+
+
+  <table class="table table-bordered">
+    <thead>
+      <tr> 
+  <th> #</th>
+      <th>Receipt Number</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Type</th>
+      <th>Tax </th>
+      <th> Total</th>
+      <th>Deposit Date </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @acupunctures.each_with_index do |m,i| %>
+    <tr>
+    <td><%= i +1 %></td>
+      <td><%= best_in_place m, :receipt_num,:place_holder=> "-----------" %></td>
+      <td><%=  best_in_place m,:fname,:place_holder=> "-----------" %></td>
+      <td><%= best_in_place m,:lname,:place_holder=> "-----------" %></td>
+      <td><%= best_in_place m,:cardtype ,:as => :select, :collection => %w(Mastercard Visa Debit Cash Cheque),:place_holder=> "-----------" %></td>
+      <td><%= best_in_place m,:tax,:place_holder=> "-----------" %></td>
+      <td><%= best_in_place m,:amount,:place_holder=> "-----------" %></td>
+      <td><%= best_in_place m,:deposit_date ,:as => :date,:place_holder=> "-----------" %></td>
+      <td>
+        <%= link_to '<i class="fa fa-trash"></i> '.html_safe, massage_path(m),
+            :confirm => 'Are you sure?',remote:true, :method => :delete %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
