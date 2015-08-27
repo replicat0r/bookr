@@ -29,7 +29,10 @@
       <td><%= best_in_place m,:tax,:place_holder=> "-----------" %></td>
       <td><%= best_in_place m,:amount,:place_holder=> "-----------" %></td>
       <td><%= best_in_place m,:deposit_date ,:as => :date,:place_holder=> "-----------" %></td>
-      
+       <td>
+        <%= link_to '<i class="fa fa-trash"></i> '.html_safe, naturopath_path(m),
+            :confirm => 'Are you sure?',remote:true, :method => :delete %>
+      </td>
     </tr>
     <% end %>
   </tbody>

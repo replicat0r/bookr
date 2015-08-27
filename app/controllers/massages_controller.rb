@@ -60,6 +60,19 @@ class MassagesController < ApplicationController
     end
   end
 
+  def destroy
+    @massage = Massage.find(params[:id])
+    @massages = Massage.where('service_date = ? ', @massage.service_date)
+    @date = @massage.service_date
+
+
+    @massage.destroy!
+    respond_to do |format|
+      format.js
+    end
+
+  end
+
   private
   def massages_param
     params.require(:massage).permit(:receipt_num,:fname,:lname,:cardtype,:deposit_date,:service_date,:amount)

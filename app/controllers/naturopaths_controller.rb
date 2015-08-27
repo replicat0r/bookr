@@ -60,6 +60,19 @@ class NaturopathsController < ApplicationController
     end
   end
 
+    def destroy
+    @naturopath = Naturopath.find(params[:id])
+    @naturopaths = Naturopath.where('service_date = ? ', @naturopath.service_date)
+    @date = @naturopath.service_date
+
+
+    @naturopath.destroy!
+    respond_to do |format|
+      format.js
+    end
+
+  end
+
   private
   def naturopaths_param
     params.require(:naturopath).permit(:receipt_num,:fname,:lname,:cardtype,:deposit_date,:service_date,:amount)
