@@ -12,4 +12,10 @@ Rails.application.routes.draw do
       get 'get_data'
     end
   end
+
+    resources :acupunctures do
+    collection do
+      get 'get_data'
+    end
+  end
 end
