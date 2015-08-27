@@ -15,7 +15,7 @@
 
 
 <div class="row">
-<h2> Massage Customers</h2>
+<h2> Naturopath Customers</h2>
 <div class="col-sm-4 row">
 
 <div id="full-clndr" class="clearfix "></div>
@@ -43,7 +43,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @all_massage.each do |m| %>
+    <% @all_naturopath.each do |m| %>
     <tr>
       <td><%= best_in_place m, :service_date,:as => :date,:place_holder=> "-----------" %></td>
 
@@ -110,7 +110,7 @@
     click: function(target){ 
       console.log(target.date.format("YYYY-MM-DD"))
       date = target.date.format("YYYY-MM-DD")
-      $.ajax({url: "<%= get_data_massages_path %>", data: {date: date}, type: "get"});
+      $.ajax({url: "<%= get_data_naturopaths_path %>", data: {date: date}, type: "get"});
       
     }
     // fired when a user goes forward a month. returns a moment.js object set to the correct month.

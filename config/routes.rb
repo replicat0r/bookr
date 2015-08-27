@@ -6,4 +6,10 @@ Rails.application.routes.draw do
       get 'get_data'
     end
   end
+
+  resources :naturopaths ,only: [:new, :create,:edit,:update,:index] do
+    collection do
+      get 'get_data'
+    end
+  end
 end

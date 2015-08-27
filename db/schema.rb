@@ -11,9 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823171108) do
+ActiveRecord::Schema.define(version: 20150827154859) do
 
   create_table "massages", force: :cascade do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "receipt_num"
+    t.date     "service_date"
+    t.date     "deposit_date"
+    t.string   "cardtype"
+    t.decimal  "amount",       precision: 8, scale: 2
+    t.decimal  "tax",          precision: 8, scale: 2
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  create_table "naturopaths", force: :cascade do |t|
     t.string   "fname"
     t.string   "lname"
     t.string   "receipt_num"
