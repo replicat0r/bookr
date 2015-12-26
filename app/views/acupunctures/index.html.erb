@@ -29,36 +29,8 @@
 
 <div class="col-sm-12">
 <h2> Year End Data</h2>
-  <table class="table table-bordered tablesorter">
-    <thead>
-      <tr>      
-      <th>Service Date</th>
-      <th>Receipt Number</th>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>PayType</th>
-      <th>Pay Tax </th>
-      <th>Payment Total</th>
-      <th>Deposit Date </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @all_acupuncture.each do |m| %>
-    <tr>
-      <td><%= best_in_place m, :service_date,:as => :date,:place_holder=> "-----------" %></td>
+   <%= render 'shared/main_data_table' %>
 
-      <td><%= best_in_place m, :receipt_num,:place_holder=> "-----------" %></td>
-      <td><%=  best_in_place m,:fname,:place_holder=> "-----------" %></td>
-      <td><%= best_in_place m,:lname,:place_holder=> "-----------" %></td>
-      <td><%= best_in_place m,:cardtype ,:as => :select, :collection => %w(Mastercard Visa Debit Cash),:place_holder=> "-----------" %></td>
-      <td><%= best_in_place m,:tax,:place_holder=> "-----------" %></td>
-      <td><%= best_in_place m,:amount,:place_holder=> "-----------" %></td>
-      <td><%= best_in_place m,:deposit_date ,:as => :date,:place_holder=> "-----------" %></td>
-      
-    </tr>
-    <% end %>
-  </tbody>
-</table>
 </div>
 </div>
 

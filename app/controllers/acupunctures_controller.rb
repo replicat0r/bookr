@@ -3,7 +3,7 @@ class AcupuncturesController < ApplicationController
   before_filter :authenticate_check
   def index
     @today = Date.today
-    @all_acupuncture = Acupuncture.all.order('service_date ASC')
+    @data = Acupuncture.all.order('service_date ASC')
 
     @acupunctures = Acupuncture.where('service_date = ? ', @today)
   end

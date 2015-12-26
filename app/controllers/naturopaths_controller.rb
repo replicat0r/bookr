@@ -3,7 +3,7 @@ class NaturopathsController < ApplicationController
   before_filter :authenticate_check
   def index
     @today = Date.today
-    @all_naturopath = Naturopath.all.order('service_date ASC')
+    @data = Naturopath.all.order('service_date ASC')
 
     @naturopaths = Naturopath.where('service_date = ? ', @today)
   end

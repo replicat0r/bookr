@@ -3,7 +3,7 @@ class MassagesController < ApplicationController
   before_filter :authenticate_check
   def index
     @today = Date.today
-    @all_massage = Massage.all.order('service_date ASC')
+    @data = Massage.all.order('service_date ASC')
 
     @massages = Massage.where('service_date = ? ', @today)
   end
