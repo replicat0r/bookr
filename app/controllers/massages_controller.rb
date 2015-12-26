@@ -53,10 +53,10 @@ class MassagesController < ApplicationController
     end
   end
   def new
-    @massage = Massage.new
+    @form_data = Massage.new
     @date = params[:date]
     respond_to do |format|
-      format.js
+      format.js {render 'shared/new.js'}
     end
   end
 

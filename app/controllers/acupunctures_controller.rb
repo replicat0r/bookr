@@ -53,10 +53,10 @@ class AcupuncturesController < ApplicationController
     end
   end
   def new
-    @acupuncture = Acupuncture.new
+    @form_data = Acupuncture.new
     @date = params[:date]
     respond_to do |format|
-      format.js
+      format.js {render 'shared/new.js'}
     end
   end
 

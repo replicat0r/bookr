@@ -53,10 +53,10 @@ class NaturopathsController < ApplicationController
     end
   end
   def new
-    @naturopath = Naturopath.new
+    @form_data = Naturopath.new
     @date = params[:date]
     respond_to do |format|
-      format.js
+      format.js {render 'shared/new.js'}
     end
   end
 
