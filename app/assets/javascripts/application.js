@@ -23,4 +23,7 @@
 //= require moment
 //= require underscore
 //= require clndr-rails
+//= require jquery.metadata.js
+//= require jquery.tablesorter.min.js
+
 //= require app
