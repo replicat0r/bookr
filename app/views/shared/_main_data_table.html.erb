@@ -12,6 +12,8 @@
     </tr>
   </thead>
   <tbody>
+
+  <%= @controller_name = @data.model.name.to_s.downcase.pluralize %>
     <% @data.each do |m| %>
     <tr>
       <td><%= best_in_place m, :service_date,:as => :date,:place_holder=> "-----------" %></td>
@@ -23,7 +25,12 @@
       <td><%= best_in_place m,:tax,:place_holder=> "-----------" %></td>
       <td><%= best_in_place m,:amount,:place_holder=> "-----------" %></td>
       <td><%= best_in_place m,:deposit_date ,:as => :date,:place_holder=> "-----------" %></td>
-      
+
+      <td><%= link_to '<i class="fa fa-trash"></i>  Delete'.html_safe, m, :method => 'delete', remote:true, :data => { :confirm => '你确定你要删除？'}%>
+      </td>
+
+
+
     </tr>
     <% end %>
   </tbody>

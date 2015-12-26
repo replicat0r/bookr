@@ -1,14 +1,10 @@
-  <h3 class="current_date">Customer Data for: <%= @today unless @today.blank? %>
-
-
-  </h3>
-
-  <%= link_to("Add New", new_naturopath_path(:date => "#{@today}") ,remote:true ,class: " add_btn btn btn-success") %>
-
-  <table class="table table-bordered">
-    <thead>
-      <tr> 
-  <th> #</th>
+<h3 class="current_date">Customer Data for: <%= @today unless @today.blank? %>
+</h3>
+<%= link_to("Add New", new_naturopath_path(:date => "#{@today}") ,remote:true ,class: " add_btn btn btn-success") %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th> #</th>
       <th>Receipt Number</th>
       <th>Firstname</th>
       <th>Lastname</th>
@@ -21,7 +17,7 @@
   <tbody>
     <% @naturopaths.each_with_index do |m,i| %>
     <tr>
-    <td><%= i +1 %></td>
+      <td><%= i +1 %></td>
       <td><%= best_in_place m, :receipt_num,:place_holder=> "-----------" %></td>
       <td><%=  best_in_place m,:fname,:place_holder=> "-----------" %></td>
       <td><%= best_in_place m,:lname,:place_holder=> "-----------" %></td>
@@ -29,11 +25,10 @@
       <td><%= best_in_place m,:tax,:place_holder=> "-----------" %></td>
       <td><%= best_in_place m,:amount,:place_holder=> "-----------" %></td>
       <td><%= best_in_place m,:deposit_date ,:as => :date,:place_holder=> "-----------" %></td>
-       <td>
-        <%= link_to '<i class="fa fa-trash"></i> '.html_safe, naturopath_path(m),
-            :confirm => 'Are you sure?',remote:true, :method => :delete %>
+
+      <td><%= link_to '<i class="fa fa-trash"></i>  Delete'.html_safe, m, :method => 'delete', remote:true, :data => { :confirm => '你确定你要删除？'}%>
       </td>
     </tr>
     <% end %>
   </tbody>
-  </table>
+</table>
