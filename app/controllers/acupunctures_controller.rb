@@ -17,7 +17,7 @@ class AcupuncturesController < ApplicationController
       puts n
     end
     respond_to do |format|
-      format.js
+      format.js {render 'shared/get_data.js'}
     end
   end
 

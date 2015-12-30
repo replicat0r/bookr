@@ -1,7 +1,7 @@
 <h3 class="current_date">Customer Data for: <%= @today unless @today.blank? %>
 </h3>
 <%= link_to("Add New", new_naturopath_path(:date => "#{@today}") ,remote:true ,class: " add_btn btn btn-success") %>
-<table class="table table-bordered">
+<table class="table table-bordered tablesorter">
   <thead>
     <tr>
       <th> #</th>
@@ -12,6 +12,8 @@
       <th> Tax </th>
       <th> Total</th>
       <th>Deposit Date </th>
+            <th>action </th>
+
     </tr>
   </thead>
   <tbody>

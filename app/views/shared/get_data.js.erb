@@ -4,4 +4,6 @@ new_date = href.replace(/\?.*/,'?date=<%= "#{@date}" %>' );
 $('.current_date').text("Customer Data for: <%= "#{@date}" %>").effect("highlight", {}, 1500);
 $('.add_btn').attr('href',new_date)
 jQuery(".best_in_place").best_in_place();
+    $(".tablesorter").tablesorter(); 
+
 
