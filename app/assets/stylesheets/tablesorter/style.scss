@@ -14,7 +14,9 @@ table.tablesorter thead tr th, table.tablesorter tfoot tr th {
 	padding: 4px;
 }
 table.tablesorter thead tr .header {
-	background-image: url(bg.gif);
+	background-image: url(image_path("bg.gif"));
+
+
 
 
 	background-repeat: no-repeat;
@@ -31,10 +33,10 @@ table.tablesorter tbody tr.odd td {
 	background-color:#F0F0F6;
 }
 table.tablesorter thead tr .headerSortUp {
-	background-image: url(asc.gif);
+	background-image: url(image_path("asc.gif"));
 }
 table.tablesorter thead tr .headerSortDown {
-	background-image: url(desc.gif);
+	background-image: url(image_path("desc.gif"));
 
 
 }
