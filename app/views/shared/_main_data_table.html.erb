@@ -1,4 +1,4 @@
-<table class="table table-bordered tablesorter">
+<table id="main-table" class="table table-bordered tablesorter">
     <thead>
       <tr>      
       <th>Service Date</th>
@@ -9,6 +9,8 @@
       <th>Pay Tax </th>
       <th>Payment Total</th>
       <th>Deposit Date </th>
+            <th>Action </th>
+
     </tr>
   </thead>
   <tbody>
@@ -26,8 +28,7 @@
       <td><%= best_in_place m,:amount,:place_holder=> "-----------" %></td>
       <td><%= best_in_place m,:deposit_date ,:as => :date,:place_holder=> "-----------" %></td>
 
-      <td><%= link_to '<i class="fa fa-trash"></i>  Delete'.html_safe, m, :method => 'delete', remote:true, :data => { :confirm => '你确定你要删除？'}%>
-      </td>
+      <td><%= link_to '<i class="fa fa-trash"></i>  Delete'.html_safe, m, :method => 'delete', remote:true, :data => { :confirm => '你确定你要删除？'}%> </td>
 
 
 
@@ -35,3 +36,4 @@
     <% end %>
   </tbody>
 </table>
+
