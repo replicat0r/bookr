@@ -31,7 +31,7 @@ class MassagesController < ApplicationController
     respond_to do |format|
       if @massage.save
         format.html { redirect_to massages_path, notice: 'Post was successfully created.' }
-        format.js
+        format.js {render 'shared/create.js'}
       else
         format.html { render action: "new" }
         format.json { render json: @massage.errors, status: :unprocessable_entity }
@@ -68,7 +68,7 @@ class MassagesController < ApplicationController
 
     @massage.destroy!
     respond_to do |format|
-      format.js
+      format.js {render 'shared/delete.js'}
     end
 
   end

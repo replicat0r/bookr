@@ -31,7 +31,7 @@ class NaturopathsController < ApplicationController
     respond_to do |format|
       if @naturopath.save
         format.html { redirect_to naturopaths_path, notice: 'Post was successfully created.' }
-        format.js
+      format.js {render 'shared/create.js'}
       else
         format.html { render action: "new" }
         format.json { render json: @naturopath.errors, status: :unprocessable_entity }
@@ -68,7 +68,7 @@ class NaturopathsController < ApplicationController
 
     @naturopath.destroy!
     respond_to do |format|
-      format.js
+      format.js {render 'shared/delete.js'}
     end
 
   end

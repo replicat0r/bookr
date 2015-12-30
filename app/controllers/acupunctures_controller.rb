@@ -31,7 +31,7 @@ class AcupuncturesController < ApplicationController
     respond_to do |format|
       if @acupuncture.save
         format.html { redirect_to acupunctures_path, notice: 'Post was successfully created.' }
-        format.js
+        format.js {render 'shared/create.js'}
       else
         format.html { render action: "new" }
         format.json { render json: @acupuncture.errors, status: :unprocessable_entity }
@@ -68,7 +68,7 @@ class AcupuncturesController < ApplicationController
 
     @acupuncture.destroy!
     respond_to do |format|
-      format.js
+      format.js {render 'shared/delete.js'}
     end
 
   end
